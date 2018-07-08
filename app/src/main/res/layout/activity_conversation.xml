@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context="io.github.peratchiselvan.kulachat.ConversationActivity">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/selvasoft"
-        android:textSize="20sp"/>
+        android:id="@+id/recyclerview_conversation">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
