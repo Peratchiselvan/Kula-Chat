@@ -39,7 +39,20 @@ public class ConversationActivity extends AppCompatActivity implements KulaClien
         client = KulaClient.getClient(this);
         client.send(new TdApi.GetChats(Long.MAX_VALUE,0,1000),this,null);
         //TdApi.Object object = Client.execute(new TdApi.GetChats(Long.MAX_VALUE,0,10));
+        recyclerView_conversation.addOnItemTouchListener(new RecyclerItemClickListener(this, recyclerView_conversation, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent chatIntent = new Intent(ConversationActivity.this,ChatActivity.class);
+                Log.d("lol", ""+chatList.get(position).id);
+                chatIntent.putExtra("KulaID",chatList.get(position).id);
+                startActivity(chatIntent);
+            }
 
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
     }
 
     @Override
@@ -113,14 +126,12 @@ class ConversationAdapter extends RecyclerView.Adapter<ConversationViewHolder>{
         }else {
             holder.profile.setImageResource(R.drawable.ic_launcher_background);
         }
-        holder.layout.setOnClickListener(new View.OnClickListener() {
+        /*holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chatIntent = new Intent(holder.layout.getContext(),ChatActivity.class);
-                chatIntent.putExtra("id",chatList.get(position).id);
-                holder.layout.getContext().startActivity(chatIntent);
+
             }
-        });
+        });*/
     }
 
     @Override
