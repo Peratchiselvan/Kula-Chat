@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements KulaClient.Callba
                     authStateRequest.useSecretChats = true;
                     authStateRequest.systemLanguageCode = "en";
                     authStateRequest.databaseDirectory = getApplicationContext().getFilesDir().getAbsolutePath();
+                    //authStateRequest.databaseDirectory = "/storage/emulated/0/kula/";
                     authStateRequest.deviceModel = "Moto";
                     authStateRequest.systemVersion = "7.0";
                     authStateRequest.applicationVersion = "0.1";
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements KulaClient.Callba
                 case TdApi.AuthorizationStateReady.CONSTRUCTOR:
                     Intent conversationIntent = new Intent(MainActivity.this, ConversationActivity.class);
                     //conversationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Log.d("authKula", "onResult: Registered...");
                     startActivity(conversationIntent);
                     finish();
             }
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements KulaClient.Callba
                     authStateRequest.useSecretChats = true;
                     authStateRequest.systemLanguageCode = "en";
                     authStateRequest.databaseDirectory = getApplicationContext().getFilesDir().getAbsolutePath();
+                    //authStateRequest.databaseDirectory = "/storage/emulated/0/kula/";
                     authStateRequest.deviceModel = "Moto";
                     authStateRequest.systemVersion = "7.0";
                     authStateRequest.applicationVersion = "0.1";
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements KulaClient.Callba
                 case TdApi.AuthorizationStateReady.CONSTRUCTOR:
                     Intent conversationIntent = new Intent(MainActivity.this, ConversationActivity.class);
                     //conversationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    Log.d("authKula", "onResult: Not Registered...");
                     startActivity(conversationIntent);
                     finish();
             }
